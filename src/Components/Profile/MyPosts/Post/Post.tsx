@@ -1,7 +1,12 @@
 import React from 'react';
 import s from './Post.module.css';
 
-const Post = (props:any) => {
+type PostType = {
+    message: string
+    likesCount: string
+}
+
+const Post = (props: PostType) => {
     return (
         <div className={s.item}>
             <img
