@@ -2,37 +2,52 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
-const Dialogs = () => {
+// type DialogItemType = {
+//     id: number
+//     name: string
+// }
+
+const DialogItem = (props:any) => {
+    let path = "/dialogs/" + props.id;
+
     return (
-        <div className={s.dialogs}>
-            <div className={s.dialogsItems}>
-                <div className={s.dialog + ' ' + s.active}>
-                    <NavLink to="/dialogs/1"> Dima </NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/2"> Slavnk </NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/3"> Vasya </NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/4"> Roma </NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/5"> Kat </NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/6">Archi </NavLink>
-                </div>
-            </div>
-            <div className={s.messages}>
-<div className={s.message}>Hi</div>
-<div className={s.message}>How is your it-kamasutra?</div>
-<div className={s.message}>Yo</div>
-            </div>
+        <div className={s.dialog + ' ' + s.active}>
+            <NavLink to={path}> {props.name} </NavLink>
         </div>
 
     )
 }
 
-export default Dialogs;
+// type MessageType = {
+//     message: string
+// }
+
+const Message = (props:any) => {
+    return (
+        <div
+            className={s.message}>{props.message}
+        </div>
+    )
+}
+
+const Dialogs = (props:any) => {
+    return (
+        <div className={s.dialogs}>
+            <div className={s.dialogsItems}>
+                <DialogItem name="Dima" id="1"/>
+                <DialogItem name="Slavnk" id="2"/>
+                <DialogItem name="Vasya" id="3"/>
+                <DialogItem name="Roma" id="4"/>
+                <DialogItem name="Kat" id="5"/>
+                <DialogItem name="Archi" id="6"/>
+            </div>
+            <div className={s.messages}>
+                <Message message="Hi"/>
+                <Message message="How is your it-kamasutra?"/>
+                <Message message="Yo"/>
+                </div>
+                </div>
+                )
+                }
+
+                export default Dialogs;
